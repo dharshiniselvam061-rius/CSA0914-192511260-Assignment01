@@ -1,0 +1,12 @@
+--- constructor chaining trace ---
+  full constructor ran for ticket 1
+Ticket#1 TN01AB1234 @[0,3] 2026-11-10T12:16:37.129714307
+--- half-built object with setters ---
+MutableTicket created with floor=-1, entryTime=null  -> invalid object is possible
+
+n          chained-ctor(ms)  default+setters(ms)  factory(ms)
+100000     12                4                    4            (true)
+1000000    20                4                    0            (true)
+5000000    49                5                    3            (true)
+All three create n objects in O(n) time and O(1) extra space per object;
+the guarantee of validity is what differs (constructor/factory vs setters).

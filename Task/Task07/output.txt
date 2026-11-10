@@ -1,0 +1,7 @@
+Car[TN01A1] 130 min -> 90.0
+Bus[TN09B9] 130 min -> 150.0, 900 min -> 300.0 (capped)
+same regNo equal? true
+HashSet contains equal object? true
+different regNo equal? false
+equals(null)=false
+money=2550 paise (final class)

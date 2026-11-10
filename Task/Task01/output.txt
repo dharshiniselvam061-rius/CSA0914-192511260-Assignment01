@@ -1,0 +1,8 @@
+n        objects(ns/search)  parallel(ns/search)
+1000     13016               9766                (check=1)
+10000    69917               21656               (check=1)
+100000   807897              664212              (check=1)
+
+Both searches are O(n) in time (linear scan, worst case n comparisons).
+Adding an attribute: objects -> add 1 field (+ constructor arg);
+parallel arrays -> new array + change every place that inserts/removes/sorts.

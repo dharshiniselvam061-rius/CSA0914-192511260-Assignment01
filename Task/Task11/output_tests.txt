@@ -1,0 +1,47 @@
+ID   | Test case                                            | Expected                   | Actual                     | Result
+-----+------------------------------------------------------+----------------------------+----------------------------+-------
+N1   | Two-wheeler, 130 min                                 | 30.0                       | 30.0                       | PASS
+N2   | Car, 130 min                                         | 90.0                       | 90.0                       | PASS
+N3   | EV, 130 min + 10 kWh charging                        | 210.0                      | 210.0                      | PASS
+N4   | Student with monthly pass parks free                 | 0.0                        | 0.0                        | PASS
+N5   | Staff with monthly pass parks free                   | 0.0                        | 0.0                        | PASS
+N6   | Visitor with monthly pass still pays (car 60 min)    | 30.0                       | 30.0                       | PASS
+N7   | Staff + monthly pass EV pays only charging (5 kWh)   | 45.0                       | 45.0                       | PASS
+N8   | Student without pass pays (car 61 min)               | 60.0                       | 60.0                       | PASS
+B1   | Zero-minute parking (car)                            | 0.0                        | 0.0                        | PASS
+B2   | Exactly 60 min (car) = 1 hour                        | 30.0                       | 30.0                       | PASS
+B3   | 61 min (car) = 2 hours                               | 60.0                       | 60.0                       | PASS
+B4   | 1 min (car) = 1 hour                                 | 30.0                       | 30.0                       | PASS
+B5   | Exactly 480 min (car) = 8 h = daily cap              | 240.0                      | 240.0                      | PASS
+B6   | 481 min (car) capped at daily max                    | 240.0                      | 240.0                      | PASS
+B7   | Exactly 1440 min (car) = 1 full day                  | 240.0                      | 240.0                      | PASS
+B8   | 1441 min (car) = 1 day + 1 hour                      | 270.0                      | 270.0                      | PASS
+B9   | EV with 0 kWh adds no charging fee (60 min)          | 40.0                       | 40.0                       | PASS
+S1   | Last free slot is allocated                          | [0,0]                      | [0,0]                      | PASS
+S2   | Entering when full is rejected                       | ParkingException           | ParkingException           | PASS
+S3   | Slot is reusable after exit                          | ok                         | ok                         | PASS
+S4   | Slots filled floor by floor                          | [0,0][0,1][1,0]            | [0,0][0,1][1,0]            | PASS
+S5   | Tickets numbers strictly increasing/unique           | true                       | true                       | PASS
+S6   | Freed slot [0,1] is reused                           | [0,1]                      | [0,1]                      | PASS
+S7   | Ticket number never reused after exit                | true                       | true                       | PASS
+S8   | Active count after 4 entries and 1 exit              | 3                          | 3                          | PASS
+I1   | Unknown vehicle type                                 | IllegalArgumentException   | IllegalArgumentException   | PASS
+I2   | Null vehicle type                                    | IllegalArgumentException   | IllegalArgumentException   | PASS
+I3   | Blank registration number                            | IllegalArgumentException   | IllegalArgumentException   | PASS
+I4   | Duplicate registration number                        | ParkingException           | ParkingException           | PASS
+I5   | Duplicate rejected without using a slot              | 1                          | 1                          | PASS
+I6   | release(5,0) invalid floor                           | false                      | false                      | PASS
+I7   | release(-1,0) negative floor                         | false                      | false                      | PASS
+I8   | release(0,99) invalid slot                           | false                      | false                      | PASS
+I9   | release(0,2) already-free slot                       | false                      | false                      | PASS
+I10  | Exit of unknown vehicle                              | ParkingException           | ParkingException           | PASS
+I11  | Exit before entry time                               | IllegalArgumentException   | IllegalArgumentException   | PASS
+I12  | Failed exit keeps vehicle parked                     | 1                          | 1                          | PASS
+I13  | Negative duration in calculateFee                    | IllegalArgumentException   | IllegalArgumentException   | PASS
+I14  | Facility with zero-size floor                        | IllegalArgumentException   | IllegalArgumentException   | PASS
+I15  | Negative kWh                                         | IllegalArgumentException   | IllegalArgumentException   | PASS
+O1   | equals: same regNo, different class                  | true                       | true                       | PASS
+O2   | hashCode consistent with equals                      | true                       | true                       | PASS
+O3   | different regNo not equal                            | false                      | false                      | PASS
+
+Total: 43  Passed: 43  Failed: 0

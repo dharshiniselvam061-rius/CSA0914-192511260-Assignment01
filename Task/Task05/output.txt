@@ -1,0 +1,10 @@
+[static block] Ticket class initialised, first number will be 1001
+before any object: occupancy=0
+tickets 1001, 1002 -> numbers are unique, counter is static
+occupancy after 2 entries = 2
+occupancy after 1 exit    = 1
+ceilHours(130)=3 (static method, no object needed)
+rates=[10.0, 30.0, 40.0]
+after rename(): a.reg=TN01A1 (unchanged), holder[0]=TN01A1-seen
+instance counter -> numbers 1, 1 (duplicates!)
+ticket collected after reference dropped? true  (System.gc() is only a request; eligibility is what the language guarantees)

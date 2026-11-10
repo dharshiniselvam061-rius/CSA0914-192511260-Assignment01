@@ -1,0 +1,10 @@
+Slot 5 holds TN01A1
+blocked: slot already holds TN01A1
+blocked: slot number must be >= 0, was -3
+OpenSlot silently holds number=-3, vehicleNo=''
+127 == 127 (Integer) : true  (cached small values)
+128 == 128 (Integer) : false  (different objects! use equals)
+128 equals 128       : true
+autobox/unbox round trip: 3
+unboxing null -> NullPointerException
+after remove(Integer 10) and remove(index 0): [30]

@@ -1,0 +1,12 @@
+Facility created: 3 floors, capacity 6
+ENTER ok  -> Ticket#1 EBike[KL01E1] slot[0,0] VISITOR/NONE in 2026-11-10T10:00
+ENTER ok  -> Ticket#2 DeliveryVan[TN70V1] slot[0,1] VISITOR/NONE in 2026-11-10T10:00
+ENTER ok  -> Ticket#3 Car[TN02B2] slot[1,0] VISITOR/DAY in 2026-11-10T08:00
+ENTER ok  -> Ticket#4 Car[TN03C3] slot[1,1] STUDENT/MONTHLY in 2026-11-10T08:30
+STATUS    -> 4/6 slots in use
+EXIT ok   -> KL01E1 pays Rs 20.0
+EXIT ok   -> TN70V1 pays Rs 180.0
+EXIT ok   -> TN02B2 pays Rs 100.0
+EXIT ok   -> TN03C3 pays Rs 0.0
+REJECTED  -> Unknown vehicle type: Helicopter
+STATUS    -> 0/6 slots in use

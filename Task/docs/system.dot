@@ -1,0 +1,26 @@
+digraph S {
+  rankdir=LR; node [shape=record, fontname="Helvetica", fontsize=10]; edge [fontname="Helvetica", fontsize=9];
+  subgraph cluster_app { label="package com.campus.parking.app"; fontname="Helvetica";
+    ParkingApp [label="{ParkingApp|+ main(args : String[]) : void\l}"]; }
+  subgraph cluster_service { label="package com.campus.parking.service"; fontname="Helvetica";
+    ParkingLot [label="{ParkingLot|- facility : ParkingFacility\l- policy : FeePolicy\l- active : ParkingTicket[]\l- activeCount : int\l|+ enter(v, user, pass, time) : ParkingTicket\l+ exit(regNo, time, kWh) : double\l- indexOf(regNo) : int\l}"];
+    ParkingFacility [label="{ParkingFacility|- slots : String[][]\l- capacity : int\l|+ allocate(vehicleNo) : int[]\l+ release(floor, slot) : boolean\l}"];
+    FeePolicy [label="{FeePolicy|+ DAY_PASS_PRICE : double  «T12»\l|+ isWaived(user, pass) : boolean\l+ parkingFee(ticket, exit) : double\l}"];
+    VehicleFactory [label="{VehicleFactory|- REGISTRY : Map  «T12»\l|+ create(type, regNo) : Vehicle\l+ register(type, ctor) : void  «T12»\l}"];
+    ParkingException [label="{ParkingException|}"]; }
+  subgraph cluster_model { label="package com.campus.parking.model"; fontname="Helvetica";
+    ParkingTicket [label="{ParkingTicket (final)|- counter : long (static)\l- ticketNo : long\l- vehicle : Vehicle\l- floor, slot : int\l- userType : UserType\l- passType : PassType\l- entryTime : LocalDateTime\l|+ ParkingTicket(...) x3 (chained)\l}"];
+    Vehicle [label="{\<\<abstract\>\>\nVehicle|...}"];
+    UserType [label="{\<\<enum\>\>\nUserType|STUDENT, STAFF, VISITOR}"];
+    PassType [label="{\<\<enum\>\>\nPassType|NONE, MONTHLY, DAY «T12»}"]; }
+  ParkingApp -> ParkingLot [label="uses"];
+  ParkingApp -> VehicleFactory [label="uses"];
+  ParkingLot -> ParkingFacility [arrowhead=diamond, label="1"];
+  ParkingLot -> FeePolicy [arrowhead=odiamond, label="1"];
+  ParkingLot -> ParkingTicket [arrowhead=odiamond, label="0..*"];
+  ParkingTicket -> Vehicle [label="1"];
+  ParkingTicket -> UserType; ParkingTicket -> PassType;
+  FeePolicy -> ParkingTicket [style=dashed, label="reads"];
+  VehicleFactory -> Vehicle [style=dashed, label="creates"];
+  ParkingLot -> ParkingException [style=dashed, label="throws"];
+}

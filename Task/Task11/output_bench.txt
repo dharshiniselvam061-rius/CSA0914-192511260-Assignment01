@@ -1,0 +1,6 @@
+n        array(ns/find)  ArrayList(ns/find)  HashMap(ns/find)
+100      139             153                 6                (check=1)
+1000     1730            1608                28               (check=1)
+10000    15180           16954               82               (check=1)
+50000    206205          210095              137              (check=1)
+array/ArrayList find = O(n) scan; HashMap find = O(1) average.

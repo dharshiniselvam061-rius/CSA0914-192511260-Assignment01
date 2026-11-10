@@ -1,0 +1,12 @@
+Enter minutes and rate per hour: Input: minutes=130, rate=30.0
+wrong (int division)   : 60.0
+wrong (cast placement) : 60.0
+wrong (int cast of rate): 36.0  (rate 12.5 truncated to 12)
+correct                : 90.0
+correct with rate 12.5 : 37.5
+
+jagged[3][59]   = TN01AB1234
+flat[offset[3]+59] = TN01AB1234  (index 179)
+list.get(3)[59] = TN01AB1234
+naive 1-D index 3*30+59 = 149 -> null  (WRONG for unequal floors)
+total slots = 200, jagged rows = 5 (F array headers), 1-D = 1 array + (F+1) ints of offsets

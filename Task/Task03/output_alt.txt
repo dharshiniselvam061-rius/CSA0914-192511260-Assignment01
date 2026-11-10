@@ -1,0 +1,7 @@
+config                 scan allocate (ns)   counts+stack allocate (ns)
+[20]                   46                   16                  
+[50, 50, 50]           62                   28                  
+5x100                  152                  15                  
+[0, 0][0, 1][1, 0]
+true false false
+[0, 1]

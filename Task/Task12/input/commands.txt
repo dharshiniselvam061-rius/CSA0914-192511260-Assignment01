@@ -1,0 +1,15 @@
+# Task 12 demo: uneven floors (2, 3 and 1 slots) with the new vehicle types and the day pass
+FLOORS 2 3 1
+ENTER EBike KL01E1 VISITOR NONE 2026-11-10T10:00
+ENTER DeliveryVan TN70V1 VISITOR NONE 2026-11-10T10:00
+ENTER Car TN02B2 VISITOR DAY 2026-11-10T08:00
+ENTER Car TN03C3 STUDENT MONTHLY 2026-11-10T08:30
+STATUS
+# e-bike flat Rs 20 (any duration); van 3 peak hours = Rs 180; visitor day pass = Rs 100; student pass = Rs 0
+EXIT KL01E1 2026-11-10T10:10
+EXIT TN70V1 2026-11-10T12:10
+EXIT TN02B2 2026-11-10T18:00
+EXIT TN03C3 2026-11-10T12:00
+# unknown type still rejected
+ENTER Helicopter TN05E5 VISITOR NONE 2026-11-10T09:17
+STATUS

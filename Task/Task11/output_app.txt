@@ -1,0 +1,13 @@
+Facility created: 2 floors, capacity 3
+ENTER ok  -> Ticket#1 TwoWheeler[TN01A1] slot[0,0] VISITOR/NONE in 2026-11-10T09:00
+ENTER ok  -> Ticket#2 Car[TN02B2] slot[0,1] STUDENT/MONTHLY in 2026-11-10T09:05
+ENTER ok  -> Ticket#3 ElectricCar[TN03C3] slot[1,0] VISITOR/NONE in 2026-11-10T09:10
+STATUS    -> 3/3 slots in use
+REJECTED  -> Parking facility is full
+REJECTED  -> Vehicle TN01A1 is already parked
+REJECTED  -> Unknown vehicle type: Helicopter
+EXIT ok   -> TN01A1 pays Rs 30.0
+EXIT ok   -> TN02B2 pays Rs 0.0
+EXIT ok   -> TN03C3 pays Rs 210.0
+REJECTED  -> No active ticket for TN03C3
+STATUS    -> 0/3 slots in use

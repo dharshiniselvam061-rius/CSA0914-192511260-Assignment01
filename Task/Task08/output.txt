@@ -1,0 +1,8 @@
+overload fee(130)        = 90.0
+overload fee(130, 10%)   = 81.0
+Declared type : Vehicle
+Actual type   : Ev
+rate() executed from: Ev.rate() -> 40.0
+ns per fee call (k=3 types): dispatch=3.59  instanceof=1.30  switch=1.22  (sink=7920000000)
+Dispatch is O(1) (vtable); instanceof/switch chains are O(k) in the worst case,
+and adding a type means editing the chain (more classes change) instead of adding a class.

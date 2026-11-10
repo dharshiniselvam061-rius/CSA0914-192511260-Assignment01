@@ -1,0 +1,6 @@
+1. new ElectricCar("TN03C3") called; Object() runs first (implicit)
+2. Vehicle instance initialiser runs (before Vehicle constructor body)
+3. Vehicle constructor body: regNo = TN03C3
+   (ratePerHour() seen from here = 0.0 -> subclass method, but its fields are not initialised yet)
+4. ElectricCar instance initialiser runs, rate field = 40.0
+5. ElectricCar constructor body finished

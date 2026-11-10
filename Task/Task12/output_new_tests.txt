@@ -1,0 +1,43 @@
+ID   | Test case                                                | Expected                 | Actual                   | Result
+-----+----------------------------------------------------------+--------------------------+--------------------------+-------
+E1   | E-bike 10 min -> flat Rs 20                              | 20.0                     | 20.0                     | PASS
+E2   | E-bike 500 min -> still flat Rs 20                       | 20.0                     | 20.0                     | PASS
+E3   | E-bike 0 min -> Rs 0                                     | 0.0                      | 0.0                      | PASS
+E4   | E-bike 1441 min -> flat Rs 20                            | 20.0                     | 20.0                     | PASS
+E5   | Student + monthly pass e-bike -> free                    | 0.0                      | 0.0                      | PASS
+V1   | Van 10:00-12:10 (3 peak hours) = 3 x 60                  | 180.0                    | 180.0                    | PASS
+V2   | Van 08:30-10:30: 08h off-peak 30 + 09h peak 60           | 90.0                     | 90.0                     | PASS
+V3   | Van 16:00-18:00: 16h peak 60 + 17h off-peak 30           | 90.0                     | 90.0                     | PASS
+V4   | Van 17:00-18:00 (starts at 17:00, off-peak)              | 30.0                     | 30.0                     | PASS
+V5   | Van 08:00-09:00 (starts 08:00, off-peak)                 | 30.0                     | 30.0                     | PASS
+V6   | Van 09:00-10:00 (starts at 09:00, peak)                  | 60.0                     | 60.0                     | PASS
+V7   | Van 16:59 start, 1 h (peak, last minute)                 | 60.0                     | 60.0                     | PASS
+V8   | Van 22:00-01:00 (all off-peak)                           | 90.0                     | 90.0                     | PASS
+V9   | Van 0 min                                                | 0.0                      | 0.0                      | PASS
+V10  | Van 09:00-17:00 = 8 peak hours = cap 480                 | 480.0                    | 480.0                    | PASS
+V11  | Van 09:00-19:00 capped at 480 (uncapped 540)             | 480.0                    | 480.0                    | PASS
+V12  | Staff + monthly pass van -> free                         | 0.0                      | 0.0                      | PASS
+V13  | Car is unchanged by the new rule (10:00-12:10)           | 90.0                     | 90.0                     | PASS
+P1   | Visitor car, day pass, 10 h -> Rs 100                    | 100.0                    | 100.0                    | PASS
+P2   | Visitor car, day pass, exactly 24 h -> Rs 100            | 100.0                    | 100.0                    | PASS
+P3   | Visitor car, day pass, 24 h 1 min -> Rs 200              | 200.0                    | 200.0                    | PASS
+P4   | Visitor EV, day pass, 10 kWh -> 100 + 90                 | 190.0                    | 190.0                    | PASS
+P5   | Visitor van, day pass -> flat 100 (not 480)              | 100.0                    | 100.0                    | PASS
+P6   | Student with DAY pass gets no discount (30 min car)      | 30.0                     | 30.0                     | PASS
+P7   | Visitor with MONTHLY pass still pays full (60 min car)   | 30.0                     | 30.0                     | PASS
+F1   | Capacity of 30+50+40+60+20 floors                        | 200                      | 200                      | PASS
+F2   | 31st vehicle goes to floor 1 slot 0                      | [1,0]                    | [1,0]                    | PASS
+F3   | 81st vehicle goes to floor 2 slot 0                      | [2,0]                    | [2,0]                    | PASS
+F4   | 121st vehicle goes to floor 3 slot 0                     | [3,0]                    | [3,0]                    | PASS
+F5   | 181st vehicle goes to floor 4 slot 0                     | [4,0]                    | [4,0]                    | PASS
+F6   | 200th vehicle (last free slot) = floor 4 slot 19         | [4,19]                   | [4,19]                   | PASS
+F7   | 201st vehicle rejected: full                             | ParkingException         | ParkingException         | PASS
+F8   | Slot [3,59] valid; [3,60] invalid                        | true/false               | true/false               | PASS
+F9   | Floors reported                                          | 5                        | 5                        | PASS
+X1   | Factory: 'ebike' -> EBike                                | EBike                    | EBike                    | PASS
+X2   | Factory: 'DeliveryVan' -> DeliveryVan                    | DeliveryVan              | DeliveryVan              | PASS
+X3   | Factory: still rejects unknown type                      | IllegalArgumentException | IllegalArgumentException | PASS
+X4   | Future 'Truck' type: new class + 1 register line         | 100.0                    | 100.0                    | PASS
+X5   | equals still by regNo across new types                   | true                     | true                     | PASS
+
+Total: 39  Passed: 39  Failed: 0

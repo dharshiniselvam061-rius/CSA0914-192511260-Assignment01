@@ -1,0 +1,19 @@
+# Facility: floor 0 has 2 slots, floor 1 has 1 slot (last-free-slot case)
+FLOORS 2 1
+ENTER TwoWheeler TN01A1 VISITOR NONE 2026-11-10T09:00
+ENTER Car TN02B2 STUDENT MONTHLY 2026-11-10T09:05
+ENTER ElectricCar TN03C3 VISITOR NONE 2026-11-10T09:10
+STATUS
+# facility full -> rejected
+ENTER Car TN04D4 VISITOR NONE 2026-11-10T09:15
+# duplicate registration number -> rejected
+ENTER Car TN01A1 VISITOR NONE 2026-11-10T09:16
+# unknown vehicle type -> rejected
+ENTER Helicopter TN05E5 VISITOR NONE 2026-11-10T09:17
+# exits: two-wheeler 130 min = Rs 30, student with pass = Rs 0, EV 130 min + 10 kWh = Rs 210
+EXIT TN01A1 2026-11-10T11:10
+EXIT TN02B2 2026-11-10T11:10
+EXIT TN03C3 2026-11-10T11:20 10
+# exit again -> no active ticket
+EXIT TN03C3 2026-11-10T11:21
+STATUS
